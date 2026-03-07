@@ -1,0 +1,24 @@
+gui:
+  spinner:
+    rate: 80
+    frames:
+    - "⠋"
+    - "⠙"
+    - "⠹"
+    - "⠸"
+    - "⠼"
+    - "⠴"
+    - "⠦"
+    - "⠧"
+    - "⠇"
+    - "⠏"
+  theme:
+    activeBorderColor:
+      - "#5aaacc"
+      - "bold"
+    inactiveBorderColor:
+      - "#635e7f"
+    selectedLineBgColor:
+      - "#304259"
+    defaultFgColor:
+      - "#cdcae4"

@@ -1,0 +1,23 @@
+{
+    "name": "Pino",
+    "background": "#191724",
+    "foreground": "#cdcae4",
+    "cursorColor": "#cdcae4",
+    "selectionBackground": "#304259",
+    "black": "#2c2841",
+    "red": "#eb6f92",
+    "green": "#94c68d",
+    "yellow": "#f4c276",
+    "blue": "#5aaacc",
+    "purple": "#c4a7e7",
+    "cyan": "#9ccfd8",
+    "white": "#8f8aae",
+    "brightBlack": "#635e7f",
+    "brightRed": "#ff82a4",
+    "brightGreen": "#a7daa0",
+    "brightYellow": "#ffd689",
+    "brightBlue": "#6dbddf",
+    "brightPurple": "#d7bafb",
+    "brightCyan": "#afe3ec",
+    "brightWhite": "#cdcae4"
+}

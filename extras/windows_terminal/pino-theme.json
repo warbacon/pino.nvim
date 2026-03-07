@@ -1,0 +1,15 @@
+{
+    "name": "Pino",
+    "tab": {
+        "background": "terminalBackground",
+        "unfocusedBackground": "#00000000"
+    },
+    "tabRow": {
+        "background": "#100e1a",
+        "unfocusedBackground": "#2c2841"
+    },
+    "window": {
+        "frame": "#5aaacc",
+        "unfocusedFrame": "#36314f"
+    }
+}
