@@ -5,11 +5,11 @@
         "unfocusedBackground": "#00000000"
     },
     "tabRow": {
-        "background": "#100e1a",
-        "unfocusedBackground": "#2c2841"
+        "background": "#0f0d1a",
+        "unfocusedBackground": "#2b283f"
     },
     "window": {
-        "frame": "#5aaacc",
-        "unfocusedFrame": "#36314f"
+        "frame": "#52abcf",
+        "unfocusedFrame": "#35314c"
     }
 }

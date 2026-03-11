@@ -1,38 +1,38 @@
-background = #191724
-foreground = #cdcae4
-cursor-color = #cdcae4
-cursor-text = #191724
-selection-background = #304259
+background = #181624
+foreground = #dddcee
+cursor-color = #dddcee
+cursor-text = #181624
+selection-background = #2b3b51
 selection-foreground = cell-foreground
 
 # Black
-palette = 0=#2c2841
-palette = 8=#635e7f
+palette = 0=#2b283f
+palette = 8=#625f7e
 
 # Red
-palette = 1=#eb6f92
-palette = 9=#ff82a4
+palette = 1=#e97294
+palette = 9=#fe85a6
 
 # Green
-palette = 2=#94c68d
-palette = 10=#a7daa0
+palette = 2=#91c488
+palette = 10=#a3d89b
 
 # Yellow
-palette = 3=#f4c276
-palette = 11=#ffd689
+palette = 3=#f3c175
+palette = 11=#ffd588
 
 # Blue
-palette = 4=#5aaacc
-palette = 12=#6dbddf
+palette = 4=#52abcf
+palette = 12=#66bee3
 
 # Magenta
-palette = 5=#c4a7e7
-palette = 13=#d7bafb
+palette = 5=#c69ff7
+palette = 13=#dab2ff
 
 # Cyan
-palette = 6=#9ccfd8
-palette = 14=#afe3ec
+palette = 6=#96cfd9
+palette = 14=#a9e3ed
 
 # White
-palette = 7=#8f8aae
-palette = 15=#cdcae4
+palette = 7=#9d9abc
+palette = 15=#dddcee
