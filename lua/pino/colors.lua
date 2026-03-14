@@ -12,13 +12,13 @@ M.setup = function()
 		overlay = util.oklch(29, 0.043, 290),
 		highlight = util.oklch(33, 0.046, 290),
 
-		text = util.oklch(90, 0.025, 290),
-		subtle = util.oklch(70, 0.05, 290),
+		text = util.oklch(85, 0.025, 290),
+		subtle = util.oklch(65, 0.05, 290),
 		muted = util.oklch(50, 0.05, 290),
 
 		foam = util.oklch(82, 0.06, 209),
 		gold = util.oklch(84, 0.11, 77),
-		iris = util.oklch(77, 0.13, 304),
+		iris = util.oklch(77, 0.11, 304),
 		leaf = util.oklch(77, 0.1, 141),
 		love = util.oklch(70, 0.15, 4),
 		pine = util.oklch(70, 0.1, 228),

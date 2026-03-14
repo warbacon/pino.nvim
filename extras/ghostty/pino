@@ -1,6 +1,6 @@
 background = #181624
-foreground = #dddcee
-cursor-color = #dddcee
+foreground = #cdcbdd
+cursor-color = #cdcbdd
 cursor-text = #181624
 selection-background = #2b3b51
 selection-foreground = cell-foreground
@@ -26,7 +26,7 @@ palette = 4=#52abcf
 palette = 12=#66bee3
 
 # Magenta
-palette = 5=#c69ff7
+palette = 5=#c3a3ed
 palette = 13=#dab2ff
 
 # Cyan
@@ -34,5 +34,5 @@ palette = 6=#96cfd9
 palette = 14=#a9e3ed
 
 # White
-palette = 7=#9d9abc
-palette = 15=#dddcee
+palette = 7=#8e8aac
+palette = 15=#cdcbdd

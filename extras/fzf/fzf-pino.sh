@@ -1,6 +1,6 @@
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
     --highlight-line \
-    --color=fg:#dddcee \
+    --color=fg:#cdcbdd \
     --color=bg:#181624 \
     --color=gutter:#181624 \
     --color=border:#52abcf \
@@ -8,13 +8,13 @@ export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
     --color=scrollbar:#625f7e \
     --color=hl:#e97294 \
     --color=hl+:#e97294 \
-    --color=fg+:#dddcee \
+    --color=fg+:#cdcbdd \
     --color=bg+:#2b3b51 \
     --color=pointer:#e9b5b3 \
     --color=prompt:#e9b5b3 \
     --color=spinner:#e9b5b3 \
     --color=marker:#e9b5b3 \
     --color=header:#52abcf \
-    --color=info:#9d9abc \
+    --color=info:#8e8aac \
     --color=preview-border:#52abcf \
     --color=preview-scrollbar:#625f7e"
