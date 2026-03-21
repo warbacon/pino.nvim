@@ -4,7 +4,7 @@ local M = {}
 function M.generate(colors)
 	local util = require("pino.util")
 	local ptyxis_colors = vim.tbl_extend("force", colors, {
-		bell_background = util.blend(colors.gold, 0.25, colors.bedrock),
+		bell_background = util.blend(colors.gold, 0.25, colors.surface),
 		superuser_background = util.blend(colors.love, 0.33, colors.base),
 		remote_background = util.blend(colors.pine, 0.33, colors.base),
 	})
@@ -17,7 +17,7 @@ Primary=true
 Foreground=${text}
 Background=${base}
 TitlebarForeground=${text}
-TitlebarBackground=${bedrock}
+TitlebarBackground=${surface}
 Cursor=${text}
 CursorForeground=${base}
 CursorBackground=${text}
