@@ -7,6 +7,7 @@ local extras = {
     "ghostty",
     "foot",
     "wezterm",
+    "ptyxis",
     "lazygit",
     "fzf",
 }
