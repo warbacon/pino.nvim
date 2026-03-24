@@ -53,7 +53,7 @@ M.setup = function(colors)
 		Function = { fg = colors.pine },
 		Identifier = { fg = colors.foam },
 		Operator = { fg = colors.subtle },
-		PreProc = { fg = colors.subtle },
+		PreProc = { fg = colors.rose },
 		Quote = { fg = colors.subtle },
 		Special = { fg = colors.iris },
 		Statement = { fg = colors.rose, italic = opts.style.italic },
