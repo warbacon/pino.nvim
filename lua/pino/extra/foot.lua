@@ -2,24 +2,24 @@ local M = {}
 
 --- @param colors table
 function M.generate(colors)
-    -- Foot doesn't support hex colors with #, so we need to remove it
-    local foot_colors = {}
-    for k, v in pairs(colors) do
-        if type(v) == "string" then
-            foot_colors[k] = v:sub(2)
-        elseif type(v) == "table" then
-            foot_colors[k] = {}
-            for sk, sv in pairs(v) do
-                if type(sv) == "string" then
-                    foot_colors[k][sk] = sv:sub(2)
-                end
-            end
-        end
-    end
+	-- Foot doesn't support hex colors with #, so we need to remove it
+	local foot_colors = {}
+	for k, v in pairs(colors) do
+		if type(v) == "string" then
+			foot_colors[k] = v:sub(2)
+		elseif type(v) == "table" then
+			foot_colors[k] = {}
+			for sk, sv in pairs(v) do
+				if type(sv) == "string" then
+					foot_colors[k][sk] = sv:sub(2)
+				end
+			end
+		end
+	end
 
-    local content = require("pino.util").template(
-        [[
-[colors]
+	local content = require("pino.util").template(
+		[[
+[colors-dark]
 foreground=${text}
 background=${base}
 selection-background=${ui.selection}
@@ -56,12 +56,12 @@ bright6=${terminal.bright_cyan}
 regular7=${terminal.white}
 bright7=${terminal.bright_white}
 ]],
-        foot_colors
-    )
+		foot_colors
+	)
 
-    return {
-        { filename = "pino.ini", content = content },
-    }
+	return {
+		{ filename = "pino.ini", content = content },
+	}
 end
 
 return M
