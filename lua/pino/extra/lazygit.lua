@@ -2,8 +2,8 @@ local M = {}
 
 --- @param colors table
 function M.generate(colors)
-    local content = require("pino.util").template(
-        [[
+	local content = require("pino.util").template(
+		[[
 gui:
   spinner:
     rate: 80
@@ -23,18 +23,18 @@ gui:
       - "${pine}"
       - "bold"
     inactiveBorderColor:
-      - "${muted}"
+      - "${subtle}"
     selectedLineBgColor:
       - "${ui.selection}"
     defaultFgColor:
       - "${text}"
 ]],
-        colors
-    )
+		colors
+	)
 
-    return {
-        { filename = "lazygit.yaml", content = content },
-    }
+	return {
+		{ filename = "lazygit.yaml", content = content },
+	}
 end
 
 return M

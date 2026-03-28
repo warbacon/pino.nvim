@@ -17,7 +17,7 @@ gui:
       - "#52abcf"
       - "bold"
     inactiveBorderColor:
-      - "#625f7e"
+      - "#8e8aac"
     selectedLineBgColor:
       - "#2b3b51"
     defaultFgColor:
