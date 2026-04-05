@@ -41,7 +41,12 @@ M.setup = function(colors)
 		SignColumn = { link = "LineNr" },
 		StatusLine = { fg = colors.subtle, bg = colors.surface },
 		StatusLineNC = { fg = colors.muted, bg = colors.surface },
+		TabLine = { fg = colors.subtle, bg = colors.overlay },
+		TabLineFill = { bg = colors.surface },
+		TabLineSel = { fg = colors.base, bg = colors.pine, bold = true },
 		Visual = { bg = colors.ui.selection },
+		WinBar = { fg = colors.subtle, bg = colors.surface },
+		WinBarNC = { fg = colors.muted, bg = colors.surface },
 		WinSeparator = { fg = colors.highlight },
 
 		-- Syntax
@@ -62,6 +67,7 @@ M.setup = function(colors)
 		Type = { fg = colors.text, bold = opts.style.bold },
 
 		-- Messages
+		Error = { fg = colors.love },
 		ErrorMsg = { fg = colors.love },
 		ModeMsg = { fg = colors.zest, bold = opts.style.bold },
 		MoreMsg = { fg = colors.pine },
