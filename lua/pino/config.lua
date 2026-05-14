@@ -43,7 +43,7 @@ M.defaults = {
 	on_highlights = function(highlights, colors) end,
 }
 
----@class pino.Config
+---@type pino.Config
 M.options = nil
 
 ---@param opts? pino.Config
