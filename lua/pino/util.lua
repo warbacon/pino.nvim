@@ -49,6 +49,48 @@ M.oklch = function(l, c, h)
 	return "#" .. to_hex(r) .. to_hex(g) .. to_hex(b_rgb)
 end
 
+---@param color string
+---@return string
+M.oklch_to_hex = function(color)
+	if type(color) ~= "string" then
+		return color
+	end
+
+	local spec = color:match("^oklch%((.*)%)$")
+	if not spec then
+		return color
+	end
+
+	spec = spec:gsub(",", " ")
+	local parts = {}
+	for part in spec:gmatch("%S+") do
+		table.insert(parts, part)
+	end
+
+	if #parts ~= 3 then
+		return color
+	end
+
+	local l_raw = parts[1]
+	local l_is_percent = l_raw:sub(-1) == "%"
+	if l_is_percent then
+		l_raw = l_raw:sub(1, -2)
+	end
+
+	local l = tonumber(l_raw)
+	local c = tonumber(parts[2])
+	local h = tonumber(parts[3])
+	if not l or not c or not h then
+		return color
+	end
+
+	if not l_is_percent and l <= 1 then
+		l = l * 100
+	end
+
+	return M.oklch(l, c, h)
+end
+
 ---@param c string
 ---@return string[]
 local function rgb(c)
