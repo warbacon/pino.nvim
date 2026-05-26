@@ -31,7 +31,7 @@ function M.generate(colors)
     "love": "${love}",
     "pine": "${pine}",
     "rose": "${rose}",
-    "zest": "${zest}",
+    "zest": "${zest}"
   },
   "colors": {
     "accent": "pine",
