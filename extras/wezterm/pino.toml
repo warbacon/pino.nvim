@@ -5,7 +5,7 @@ cursor_fg = "#181624"
 cursor_bg = "#cdcbdd"
 cursor_border = "#cdcbdd"
 selection_fg = "none"
-selection_bg = "#2b3b51"
+selection_bg = "#323551"
 scrollbar_thumb = "#625f7e"
 split = "#2b283f"
 

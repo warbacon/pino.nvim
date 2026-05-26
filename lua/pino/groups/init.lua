@@ -10,6 +10,7 @@ M.setup = function(colors)
 	end
 
 	local util = require("pino.util")
+	local oklch = colors.oklch or colors
 
 	---@type table<string, vim.api.keyset.highlight>
 	highlights = {
@@ -37,7 +38,7 @@ M.setup = function(colors)
 		PmenuThumb = { bg = colors.muted },
 		Question = { fg = colors.foam },
 		QuickFixLine = { fg = colors.zest },
-		Search = { fg = "white", bg = util.blend(colors.zest, 0.4, colors.base) },
+		Search = { fg = "white", bg = util.blend(oklch.zest, 0.4, oklch.base) },
 		SignColumn = { link = "LineNr" },
 		StatusLine = { fg = colors.subtle, bg = colors.surface },
 		StatusLineNC = { fg = colors.muted, bg = colors.surface },
@@ -103,10 +104,10 @@ M.setup = function(colors)
 			undercurl = opts.style.undercurl,
 			underline = not opts.style.undercurl,
 		},
-		DiagnosticVirtualtextError = { fg = colors.love, bg = util.blend(colors.love, 0.1, colors.base) },
-		DiagnosticVirtualtextHint = { fg = colors.pine, bg = util.blend(colors.pine, 0.1, colors.base) },
-		DiagnosticVirtualtextInfo = { fg = colors.foam, bg = util.blend(colors.foam, 0.1, colors.base) },
-		DiagnosticVirtualtextWarn = { fg = colors.gold, bg = util.blend(colors.gold, 0.1, colors.base) },
+		DiagnosticVirtualtextError = { fg = colors.love, bg = util.blend(oklch.love, 0.1, oklch.base) },
+		DiagnosticVirtualtextHint = { fg = colors.pine, bg = util.blend(oklch.pine, 0.1, oklch.base) },
+		DiagnosticVirtualtextInfo = { fg = colors.foam, bg = util.blend(oklch.foam, 0.1, oklch.base) },
+		DiagnosticVirtualtextWarn = { fg = colors.gold, bg = util.blend(oklch.gold, 0.1, oklch.base) },
 
 		-- Diff
 		Added = { fg = colors.leaf },
@@ -115,10 +116,10 @@ M.setup = function(colors)
 		diffChanged = { link = "Changed" },
 		diffAdded = { link = "Added" },
 		diffRemoved = { link = "Removed" },
-		DiffAdd = { bg = util.blend(colors.leaf, 0.25, colors.base) },
-		DiffChange = { bg = util.blend(colors.pine, 0.1, colors.base) },
-		DiffDelete = { bg = util.blend(colors.love, 0.25, colors.base) },
-		DiffText = { bg = util.blend(colors.pine, 0.25, colors.base) },
+		DiffAdd = { bg = util.blend(oklch.leaf, 0.25, oklch.base) },
+		DiffChange = { bg = util.blend(oklch.pine, 0.1, oklch.base) },
+		DiffDelete = { bg = util.blend(oklch.love, 0.25, oklch.base) },
+		DiffText = { bg = util.blend(oklch.pine, 0.25, oklch.base) },
 
 		-- Treesitter
 		["@function.builtin"] = { fg = colors.pine, italic = opts.style.italic },

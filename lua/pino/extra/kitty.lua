@@ -9,6 +9,10 @@ selection_foreground none
 selection_background ${ui.selection}
 cursor ${text}
 cursor_text_color ${base}
+active_tab_background ${pine}
+active_tab_foreground ${base}
+inactive_tab_background ${overlay}
+inactive_tab_foreground ${text}
 
 # Black
 color0 ${terminal.black}
@@ -43,15 +47,14 @@ color7 ${terminal.white}
 color15 ${terminal.bright_white}
 ]]
 
---- @param colors table
+---@param colors table
 function M.generate(colors)
 	local legacy_content = util.template(template, colors)
 	local oklch_source = colors.oklch or colors
 	local oklch_content = util.template(template, oklch_source)
-
+	
 	return {
-		{ filename = "pino-legacy.conf", content = legacy_content },
-		{ filename = "pino.conf", content = oklch_content },
+		{ filename = "pino-legacy.conf", content = legacy_content }, { filename = "pino.conf", content = oklch_content }
 	}
 end
 

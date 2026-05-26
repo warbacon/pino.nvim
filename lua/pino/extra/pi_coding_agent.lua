@@ -1,17 +1,18 @@
 local M = {}
 
---- @param colors table
+---@param colors table
 function M.generate(colors)
-	local util = require("pino.util")
-	local pi_colors = vim.tbl_extend("force", colors, {
-		selection = colors.ui.selection,
-		tool_success_bg = util.blend(colors.leaf, 0.2, colors.base),
-		tool_error_bg = util.blend(colors.love, 0.2, colors.base),
-	})
+  local util = require("pino.util")
+  local pi_colors = vim.tbl_extend("force", colors, {
+    selection = colors.ui.selection,
+    dim = colors.muted,
+    tool_success_bg = util.blend(colors.leaf, 0.2, colors.base),
+    tool_error_bg = util.blend(colors.love, 0.2, colors.base)
+  })
 
-	local content = util.template(
-		[[{
-  "$schema": "https://raw.githubusercontent.com/badlogic/pi-mono/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
+  local content = util.template(
+    [[{
+  "$schema": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
   "name": "pino",
   "vars": {
     "bedrock": "${bedrock}",
@@ -31,45 +32,43 @@ function M.generate(colors)
     "pine": "${pine}",
     "rose": "${rose}",
     "zest": "${zest}",
-    "tool_success_bg": "${tool_success_bg}",
-    "tool_error_bg": "${tool_error_bg}"
   },
   "colors": {
-    "accent": "rose",
+    "accent": "pine",
     "border": "pine",
     "borderAccent": "foam",
-    "borderMuted": "subtle",
+    "borderMuted": "muted",
     "success": "leaf",
     "error": "love",
     "warning": "gold",
-    "muted": "muted",
-    "dim": "subtle",
+    "muted": "subtle",
+    "dim": "muted",
     "text": "text",
-    "thinkingText": "subtle",
+    "thinkingText": "muted",
     "selectedBg": "selection",
     "userMessageBg": "overlay",
     "userMessageText": "text",
     "customMessageBg": "surface",
     "customMessageText": "text",
-    "customMessageLabel": "gold",
+    "customMessageLabel": "iris",
     "toolPendingBg": "surface",
-    "toolSuccessBg": "tool_success_bg",
-    "toolErrorBg": "tool_error_bg",
+    "toolSuccessBg": "${tool_success_bg}",
+    "toolErrorBg": "${tool_error_bg}",
     "toolTitle": "rose",
-    "toolOutput": "subtle",
+    "toolOutput": "muted",
     "mdHeading": "pine",
     "mdLink": "foam",
     "mdLinkUrl": "iris",
-    "mdCode": "gold",
+    "mdCode": "zest",
     "mdCodeBlock": "gold",
-    "mdCodeBlockBorder": "subtle",
+    "mdCodeBlockBorder": "muted",
     "mdQuote": "subtle",
-    "mdQuoteBorder": "subtle",
-    "mdHr": "subtle",
+    "mdQuoteBorder": "muted",
+    "mdHr": "muted",
     "mdListBullet": "zest",
     "toolDiffAdded": "leaf",
     "toolDiffRemoved": "love",
-    "toolDiffContext": "subtle",
+    "toolDiffContext": "muted",
     "syntaxComment": "subtle",
     "syntaxKeyword": "rose",
     "syntaxFunction": "pine",
@@ -79,7 +78,7 @@ function M.generate(colors)
     "syntaxType": "text",
     "syntaxOperator": "subtle",
     "syntaxPunctuation": "subtle",
-    "thinkingOff": "highlight",
+    "thinkingOff": "muted",
     "thinkingMinimal": "subtle",
     "thinkingLow": "pine",
     "thinkingMedium": "foam",
@@ -92,13 +91,10 @@ function M.generate(colors)
     "cardBg": "surface",
     "infoBg": "highlight"
   }
-}]],
-		pi_colors
-	)
+}]], pi_colors
+  )
 
-	return {
-		{ filename = "pino.json", content = content },
-	}
+  return { { filename = "pino.json", content = content } }
 end
 
 return M

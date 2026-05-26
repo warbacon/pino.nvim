@@ -19,7 +19,7 @@ local OKLCH_BASE = {
 	zest = "oklch(0.8400 0.1500 43.0)"
 }
 
-local function build_oklch_palette()
+local function build_oklch_palette(util)
 	local colors = vim.deepcopy(OKLCH_BASE)
 	
 	colors.terminal = {
@@ -41,7 +41,7 @@ local function build_oklch_palette()
 		bright_white = colors.text
 	}
 	
-	colors.ui = { selection = "oklch(0.3485 0.0441 256.5)" }
+	colors.ui = { selection = util.blend_oklch(colors.pine, 0.2, colors.surface) }
 	
 	return colors
 end
@@ -67,7 +67,7 @@ M.setup = function ()
 	local opts = require("pino.config").options
 	local util = require("pino.util")
 	
-	local oklch = build_oklch_palette()
+	local oklch = build_oklch_palette(util)
 	local colors = to_hex_palette(oklch, util)
 	
 	colors.oklch = oklch
