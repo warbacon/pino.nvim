@@ -1,7 +1,7 @@
 local M = {}
 
---- @param colors table
-function M.generate(colors)
+--- @param palette table
+function M.generate(palette)
 	local fzf_default_opts = require("pino.util").template(
 		[[
 "$FZF_DEFAULT_OPTS \
@@ -25,7 +25,7 @@ function M.generate(colors)
     --color=preview-border:${pine} \
     --color=preview-scrollbar:${muted}"
 ]],
-		colors
+		palette
 	)
 
 	return {

@@ -1,17 +1,18 @@
 local M = {}
 
----@param colors table
-function M.generate(colors)
+---@param palette table
+function M.generate(palette)
 	local util = require("pino.util")
-	local ptyxis_colors = vim.tbl_extend("force", colors, {
-		bell_background = util.blend(colors.gold, 0.25, colors.surface),
-		superuser_background = util.blend(colors.love, 0.33, colors.base),
-		remote_background = util.blend(colors.pine, 0.33, colors.base),
+	local color = require("pino.color")
+	local ptyxis_colors = vim.tbl_extend("force", palette, {
+		bell_background = color.blend(palette.gold, 0.25, palette.surface),
+		superuser_background = color.blend(palette.love, 0.33, palette.base),
+		remote_background = color.blend(palette.pine, 0.33, palette.base),
 	})
 
-	local content = require("pino.util").template(
+	local content = util.template(
 		[[
-[Palette]
+[colors]
 Name=Pino
 Primary=true
 Foreground=${text}

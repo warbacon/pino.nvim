@@ -1,25 +1,25 @@
 local M = {}
 
----@param colors table<string,string>
+---@param palette table<string,string>
 ---@return table<string,vim.api.keyset.highlight>
-M.get = function(colors)
+M.get = function(palette)
 	return {
 		MiniPickMatchCurrent = { link = "PmenuSel" },
-		MiniPickMatchMarked = { bg = colors.ui.selection },
-		MiniPickMatchRanges = { fg = colors.love },
-		MiniPickPrompt = { fg = "none", bg = colors.surface },
-		MiniPickPromptCaret = { fg = colors.rose, bg = colors.surface },
-		MiniPickPromptPrefix = { fg = colors.rose, bg = colors.surface },
-		MiniStatuslineModeNormal = { fg = colors.surface, bg = colors.pine },
-		MiniStatuslineModeInsert = { fg = colors.surface, bg = colors.leaf },
-		MiniStatuslineModeVisual = { fg = colors.surface, bg = colors.iris },
-		MiniStatuslineModeReplace = { fg = colors.surface, bg = colors.love },
-		MiniStatuslineModeCommand = { fg = colors.surface, bg = colors.gold },
-		MiniStatuslineModeOther = { fg = colors.surface, bg = colors.leaf },
-		MiniStatuslineDevinfo = { fg = colors.subtle, bg = colors.highlight },
-		MiniStatuslineFileinfo = { fg = colors.subtle, bg = colors.highlight },
-		MiniStatuslineFilename = { fg = colors.subtle },
-		MiniIndentscopeSymbol = { fg = colors.pine },
+		MiniPickMatchMarked = { bg = palette.ui.selection },
+		MiniPickMatchRanges = { fg = palette.love },
+		MiniPickPrompt = { fg = "none", bg = palette.surface },
+		MiniPickPromptCaret = { fg = palette.rose, bg = palette.surface },
+		MiniPickPromptPrefix = { fg = palette.rose, bg = palette.surface },
+		MiniStatuslineModeNormal = { fg = palette.surface, bg = palette.pine },
+		MiniStatuslineModeInsert = { fg = palette.surface, bg = palette.leaf },
+		MiniStatuslineModeVisual = { fg = palette.surface, bg = palette.iris },
+		MiniStatuslineModeReplace = { fg = palette.surface, bg = palette.love },
+		MiniStatuslineModeCommand = { fg = palette.surface, bg = palette.gold },
+		MiniStatuslineModeOther = { fg = palette.surface, bg = palette.leaf },
+		MiniStatuslineDevinfo = { fg = palette.subtle, bg = palette.highlight },
+		MiniStatuslineFileinfo = { fg = palette.subtle, bg = palette.highlight },
+		MiniStatuslineFilename = { fg = palette.subtle },
+		MiniIndentscopeSymbol = { fg = palette.pine },
 	}
 end
 

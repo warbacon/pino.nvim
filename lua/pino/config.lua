@@ -3,8 +3,8 @@ local M = {}
 ---@class pino.Config
 ---@field style? pino.Config.Style
 ---@field plugins? pino.Config.Plugins
----@field on_colors? fun(colors: table<string,string>)
----@field on_highlights? fun(highlights: table<string,vim.api.keyset.highlight>, colors: table<string,string>)
+---@field on_palette? fun(palette: table<string, any>)
+---@field on_highlights? fun(highlights: table<string,vim.api.keyset.highlight>, palette: table<string, any>)
 
 ---@class pino.Config.Style
 ---@field italic? boolean
@@ -38,9 +38,9 @@ M.defaults = {
 		render_markdown = true,
 	},
 	---@diagnostic disable-next-line: unused-local
-	on_colors = function(colors) end,
+	on_palette = function(palette) end,
 	---@diagnostic disable-next-line: unused-local
-	on_highlights = function(highlights, colors) end,
+	on_highlights = function(highlights, palette) end,
 }
 
 ---@type pino.Config

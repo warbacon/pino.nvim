@@ -25,7 +25,7 @@ background = "#211f32"
 
 [colors.selection]
 text = "CellForeground"
-background = "#323551"
+background = "#2b3b51"
 
 [colors.normal]
 black = "#2b283f"

@@ -1,9 +1,9 @@
 local M = {}
 
---- @param colors table
-function M.generate(colors)
-    local content = require("pino.util").template(
-        [[
+--- @param palette table
+function M.generate(palette)
+	local content = require("pino.util").template(
+		[[
 background = ${base}
 foreground = ${text}
 cursor-color = ${text}
@@ -43,12 +43,12 @@ palette = 14=${terminal.bright_cyan}
 palette = 7=${terminal.white}
 palette = 15=${terminal.bright_white}
 ]],
-        colors
-    )
+		palette
+	)
 
-    return {
-        { filename = "pino", content = content },
-    }
+	return {
+		{ filename = "pino", content = content },
+	}
 end
 
 return M

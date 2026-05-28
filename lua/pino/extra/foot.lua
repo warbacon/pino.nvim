@@ -1,17 +1,17 @@
 local M = {}
 
---- @param colors table
-function M.generate(colors)
+--- @param palette table
+function M.generate(palette)
 	-- Foot doesn't support hex colors with #, so we need to remove it
-	local foot_colors = {}
-	for k, v in pairs(colors) do
+	local foot_palette = {}
+	for k, v in pairs(palette) do
 		if type(v) == "string" then
-			foot_colors[k] = v:sub(2)
+			foot_palette[k] = v:sub(2)
 		elseif type(v) == "table" then
-			foot_colors[k] = {}
+			foot_palette[k] = {}
 			for sk, sv in pairs(v) do
 				if type(sv) == "string" then
-					foot_colors[k][sk] = sv:sub(2)
+					foot_palette[k][sk] = sv:sub(2)
 				end
 			end
 		end
@@ -56,7 +56,7 @@ bright6=${terminal.bright_cyan}
 regular7=${terminal.white}
 bright7=${terminal.bright_white}
 ]],
-		foot_colors
+		foot_palette
 	)
 
 	return {

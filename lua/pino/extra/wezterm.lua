@@ -1,9 +1,9 @@
 local M = {}
 
---- @param colors table
-function M.generate(colors)
-    local content = require("pino.util").template(
-        [[
+--- @param palette table
+function M.generate(palette)
+	local content = require("pino.util").template(
+		[[
 [colors]
 foreground = "${text}"
 background = "${base}"
@@ -62,12 +62,12 @@ fg_color = "${muted}"
 bg_color = "${highlight}"
 fg_color = "${text}"
 ]],
-        colors
-    )
+		palette
+	)
 
-    return {
-        { filename = "pino.toml", content = content },
-    }
+	return {
+		{ filename = "pino.toml", content = content },
+	}
 end
 
 return M

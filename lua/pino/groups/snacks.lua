@@ -1,15 +1,15 @@
 local M = {}
 
----@param colors table<string,string>
+---@param palette table<string,string>
 ---@return table<string,vim.api.keyset.highlight>
-M.get = function(colors)
+M.get = function(palette)
 	return {
-		SnacksPickerCursorline = { bg = colors.ui.selection },
-		SnacksPickerMatch = { fg = colors.love },
-		SnacksPickerPrompt = { fg = colors.rose },
-		SnacksTitle = { fg = colors.rose, bg = colors.surface, bold = true },
-		SnacksIndentScope = { fg = colors.pine },
-		SnacksIndent = { fg = colors.highlight },
+		SnacksPickerCursorline = { bg = palette.ui.selection },
+		SnacksPickerMatch = { fg = palette.love },
+		SnacksPickerPrompt = { fg = palette.rose },
+		SnacksTitle = { fg = palette.rose, bg = palette.surface, bold = true },
+		SnacksIndentScope = { fg = palette.pine },
+		SnacksIndent = { fg = palette.highlight },
 	}
 end
 

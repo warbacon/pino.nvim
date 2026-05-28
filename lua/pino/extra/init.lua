@@ -42,7 +42,7 @@ function M.build()
 		return
 	end
 
-	local colors = require("pino.colors").setup()
+	local palette = require("pino.palette").setup()
 
 	local stats = { generated = 0, failed = 0 }
 
@@ -50,7 +50,7 @@ function M.build()
 		local ok, plugin = pcall(require, "pino.extra." .. extra_name)
 
 		if ok then
-			local gen_ok, result = pcall(plugin.generate, colors)
+			local gen_ok, result = pcall(plugin.generate, palette)
 
 			if gen_ok and type(result) == "table" then
 				for _, output in ipairs(result) do

@@ -1,8 +1,8 @@
 local M = {}
 
----@param colors table<string,string>
+---@param palette table<string,string>
 ---@return table<string,vim.api.keyset.highlight>
-M.get = function(colors)
+M.get = function(palette)
 	return {
 		BlinkCmpKindClass = { link = "Type" },
 		BlinkCmpKindColor = { link = "Special" },
@@ -10,11 +10,11 @@ M.get = function(colors)
 		BlinkCmpKindConstructor = { link = "Function" },
 		BlinkCmpKindEnumMember = { link = "Constant" },
 		BlinkCmpKindEvent = { link = "Special" },
-		BlinkCmpKindFile = { fg = colors.text },
+		BlinkCmpKindFile = { fg = palette.text },
 		BlinkCmpKindFolder = { link = "Directory" },
 		BlinkCmpKindInterface = { link = "Type" },
 		BlinkCmpKindFunction = { link = "Function" },
-		BlinkCmpKindKeyword = { fg = colors.rose },
+		BlinkCmpKindKeyword = { fg = palette.rose },
 		BlinkCmpKindMethod = { link = "Function" },
 		BlinkCmpKindModule = { link = "Directory" },
 		BlinkCmpKindEnum = { link = "Identifier" },

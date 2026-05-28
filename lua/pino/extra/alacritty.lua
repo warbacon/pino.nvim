@@ -1,7 +1,7 @@
 local M = {}
 
---- @param colors table
-function M.generate(colors)
+--- @param palette table
+function M.generate(palette)
 	local content = require("pino.util").template(
 		[[
 [colors.primary]
@@ -53,7 +53,7 @@ magenta = "${terminal.bright_magenta}"
 cyan = "${terminal.bright_cyan}"
 white = "${terminal.bright_white}"
 ]],
-		colors
+		palette
 	)
 
 	return {

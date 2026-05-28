@@ -1,7 +1,7 @@
 local M = {}
 
---- @param colors table
-function M.generate(colors)
+--- @param palette table
+function M.generate(palette)
 	local content = require("pino.util").template(
 		[[
 gui:
@@ -29,7 +29,7 @@ gui:
     defaultFgColor:
       - "${text}"
 ]],
-		colors
+		palette
 	)
 
 	return {

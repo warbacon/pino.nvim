@@ -1,8 +1,26 @@
 local M = {}
 
-local util = require("pino.util")
+local function stringify_oklch_palette(value)
+	if require("pino.color").is_oklch_leaf(value) then
+		return string.format("oklch(%.4f %.4f %.1f)", value.l, value.c, value.h)
+	end
 
-local template = [[
+	if type(value) ~= "table" then
+		return value
+	end
+
+	local out = {}
+	for key, child in pairs(value) do
+		out[key] = stringify_oklch_palette(child)
+	end
+	return out
+end
+
+---@param palette table
+function M.generate(palette)
+	local util = require("pino.util")
+
+	local template = [[
 foreground ${text}
 background ${base}
 selection_foreground none
@@ -47,14 +65,12 @@ color7 ${terminal.white}
 color15 ${terminal.bright_white}
 ]]
 
----@param colors table
-function M.generate(colors)
-	local legacy_content = util.template(template, colors)
-	local oklch_source = colors.oklch or colors
-	local oklch_content = util.template(template, oklch_source)
-	
+	local legacy_content = util.template(template, palette.hex)
+	local oklch_content = util.template(template, stringify_oklch_palette(palette.oklch))
+
 	return {
-		{ filename = "pino-legacy.conf", content = legacy_content }, { filename = "pino.conf", content = oklch_content }
+		{ filename = "pino-legacy.conf", content = legacy_content },
+		{ filename = "pino.conf", content = oklch_content },
 	}
 end
 

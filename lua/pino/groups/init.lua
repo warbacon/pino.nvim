@@ -1,152 +1,152 @@
 local M = {}
 
----@param colors? table<string,string>
-M.setup = function(colors)
+---@param palette? table<string, any>
+M.setup = function(palette)
+	local color = require("pino.color")
 	local opts = require("pino.config").options
 	local highlights
 
-	if not colors then
-		colors = require("pino.colors").setup()
+	if not palette then
+		palette = require("pino.palette").setup()
 	end
 
-	local util = require("pino.util")
-	local oklch = colors.oklch or colors
+	local oklch = palette.oklch or palette
 
 	---@type table<string, vim.api.keyset.highlight>
 	highlights = {
 		-- UI
-		ColorColumn = { bg = colors.surface },
-		CurSearch = { fg = colors.base, bg = colors.zest },
+		ColorColumn = { bg = palette.surface },
+		CurSearch = { fg = palette.base, bg = palette.zest },
 		CursorColumn = { link = "CursorLine" },
-		CursorLine = { bg = colors.overlay },
-		CursorLineNr = { fg = colors.text, bold = true },
-		FloatBorder = { fg = colors.pine, bg = colors.surface },
-		FloatTitle = { fg = colors.pine, bg = colors.surface, bold = opts.style.bold },
+		CursorLine = { bg = palette.overlay },
+		CursorLineNr = { fg = palette.text, bold = true },
+		FloatBorder = { fg = palette.pine, bg = palette.surface },
+		FloatTitle = { fg = palette.pine, bg = palette.surface, bold = opts.style.bold },
 		FoldColumm = { link = "LineNr" },
-		Folded = { bg = colors.highlight },
-		LineNr = { fg = colors.muted },
-		MatchParen = { bg = colors.highlight },
-		NonText = { fg = colors.subtle },
-		Normal = { fg = colors.text, bg = colors.base },
-		NormalFloat = { bg = colors.surface },
-		Pmenu = { bg = colors.surface },
+		Folded = { bg = palette.highlight },
+		LineNr = { fg = palette.muted },
+		MatchParen = { bg = palette.highlight },
+		NonText = { fg = palette.subtle },
+		Normal = { fg = palette.text, bg = palette.base },
+		NormalFloat = { bg = palette.surface },
+		Pmenu = { bg = palette.surface },
 		PmenuBorder = { link = "FloatBorder" },
-		PmenuExtra = { fg = colors.subtle, italic = opts.style.italic },
-		PmenuKind = { fg = colors.subtle },
-		PmenuSbar = { bg = colors.overlay },
-		PmenuSel = { bg = colors.highlight },
-		PmenuThumb = { bg = colors.muted },
-		Question = { fg = colors.foam },
-		QuickFixLine = { fg = colors.zest },
-		Search = { fg = "white", bg = util.blend(oklch.zest, 0.4, oklch.base) },
+		PmenuExtra = { fg = palette.subtle, italic = opts.style.italic },
+		PmenuKind = { fg = palette.subtle },
+		PmenuSbar = { bg = palette.overlay },
+		PmenuSel = { bg = palette.highlight },
+		PmenuThumb = { bg = palette.muted },
+		Question = { fg = palette.foam },
+		QuickFixLine = { fg = palette.zest },
+		Search = { fg = "white", bg = color.blend(oklch.zest, 0.4, oklch.base) },
 		SignColumn = { link = "LineNr" },
-		StatusLine = { fg = colors.subtle, bg = colors.surface },
-		StatusLineNC = { fg = colors.muted, bg = colors.surface },
-		TabLine = { fg = colors.subtle, bg = colors.overlay },
-		TabLineFill = { bg = colors.surface },
-		TabLineSel = { fg = colors.base, bg = colors.pine, bold = true },
-		Visual = { bg = colors.ui.selection },
-		WinBar = { fg = colors.subtle, bg = colors.surface },
-		WinBarNC = { fg = colors.muted, bg = colors.surface },
-		WinSeparator = { fg = colors.highlight },
+		StatusLine = { fg = palette.subtle, bg = palette.surface },
+		StatusLineNC = { fg = palette.muted, bg = palette.surface },
+		TabLine = { fg = palette.subtle, bg = palette.overlay },
+		TabLineFill = { bg = palette.surface },
+		TabLineSel = { fg = palette.base, bg = palette.pine, bold = true },
+		Visual = { bg = palette.ui.selection },
+		WinBar = { fg = palette.subtle, bg = palette.surface },
+		WinBarNC = { fg = palette.muted, bg = palette.surface },
+		WinSeparator = { fg = palette.highlight },
 
 		-- Syntax
-		Comment = { fg = colors.subtle, italic = opts.style.italic },
-		Conceal = { fg = colors.subtle },
-		Constant = { fg = colors.zest },
-		Delimiter = { fg = colors.subtle },
-		Directory = { fg = colors.pine },
-		Function = { fg = colors.pine },
-		Identifier = { fg = colors.foam },
-		Operator = { fg = colors.subtle },
-		PreProc = { fg = colors.rose },
-		Quote = { fg = colors.subtle },
-		Special = { fg = colors.iris },
-		Statement = { fg = colors.rose, italic = opts.style.italic },
-		String = { fg = colors.gold },
-		Title = { fg = colors.pine, bold = opts.style.bold },
-		Type = { fg = colors.text, bold = opts.style.bold },
+		Comment = { fg = palette.subtle, italic = opts.style.italic },
+		Conceal = { fg = palette.subtle },
+		Constant = { fg = palette.zest },
+		Delimiter = { fg = palette.subtle },
+		Directory = { fg = palette.pine },
+		Function = { fg = palette.pine },
+		Identifier = { fg = palette.foam },
+		Operator = { fg = palette.subtle },
+		PreProc = { fg = palette.rose },
+		Quote = { fg = palette.subtle },
+		Special = { fg = palette.iris },
+		Statement = { fg = palette.rose, italic = opts.style.italic },
+		String = { fg = palette.gold },
+		Title = { fg = palette.pine, bold = opts.style.bold },
+		Type = { fg = palette.text, bold = opts.style.bold },
 
 		-- Messages
-		Error = { fg = colors.love },
-		ErrorMsg = { fg = colors.love },
-		ModeMsg = { fg = colors.zest, bold = opts.style.bold },
-		MoreMsg = { fg = colors.pine },
-		OkMsg = { fg = colors.leaf },
-		WarningMsg = { fg = colors.gold },
+		Error = { fg = palette.love },
+		ErrorMsg = { fg = palette.love },
+		ModeMsg = { fg = palette.zest, bold = opts.style.bold },
+		MoreMsg = { fg = palette.pine },
+		OkMsg = { fg = palette.leaf },
+		WarningMsg = { fg = palette.gold },
 
 		-- Diagnostics
-		DiagnosticError = { fg = colors.love },
-		DiagnosticHint = { fg = colors.pine },
-		DiagnosticInfo = { fg = colors.foam },
-		DiagnosticWarn = { fg = colors.gold },
-		DiagnosticFloatingError = { fg = colors.love, bg = colors.surface },
-		DiagnosticFloatingHint = { fg = colors.pine, bg = colors.surface },
-		DiagnosticFloatingInfo = { fg = colors.foam, bg = colors.surface },
-		DiagnosticFloatingWarn = { fg = colors.gold, bg = colors.surface },
+		DiagnosticError = { fg = palette.love },
+		DiagnosticHint = { fg = palette.pine },
+		DiagnosticInfo = { fg = palette.foam },
+		DiagnosticWarn = { fg = palette.gold },
+		DiagnosticFloatingError = { fg = palette.love, bg = palette.surface },
+		DiagnosticFloatingHint = { fg = palette.pine, bg = palette.surface },
+		DiagnosticFloatingInfo = { fg = palette.foam, bg = palette.surface },
+		DiagnosticFloatingWarn = { fg = palette.gold, bg = palette.surface },
 		DiagnosticUnderlineError = {
-			sp = colors.love,
+			sp = palette.love,
 			undercurl = opts.style.undercurl,
 			underline = not opts.style.undercurl,
 		},
 		DiagnosticUnderlineHint = {
-			sp = colors.pine,
+			sp = palette.pine,
 			undercurl = opts.style.undercurl,
 			underline = not opts.style.undercurl,
 		},
 		DiagnosticUnderlineInfo = {
-			sp = colors.foam,
+			sp = palette.foam,
 			undercurl = opts.style.undercurl,
 			underline = not opts.style.undercurl,
 		},
 		DiagnosticUnderlineWarn = {
-			sp = colors.gold,
+			sp = palette.gold,
 			undercurl = opts.style.undercurl,
 			underline = not opts.style.undercurl,
 		},
-		DiagnosticVirtualtextError = { fg = colors.love, bg = util.blend(oklch.love, 0.1, oklch.base) },
-		DiagnosticVirtualtextHint = { fg = colors.pine, bg = util.blend(oklch.pine, 0.1, oklch.base) },
-		DiagnosticVirtualtextInfo = { fg = colors.foam, bg = util.blend(oklch.foam, 0.1, oklch.base) },
-		DiagnosticVirtualtextWarn = { fg = colors.gold, bg = util.blend(oklch.gold, 0.1, oklch.base) },
+		DiagnosticVirtualtextError = { fg = palette.love, bg = color.blend(oklch.love, 0.1, oklch.base) },
+		DiagnosticVirtualtextHint = { fg = palette.pine, bg = color.blend(oklch.pine, 0.1, oklch.base) },
+		DiagnosticVirtualtextInfo = { fg = palette.foam, bg = color.blend(oklch.foam, 0.1, oklch.base) },
+		DiagnosticVirtualtextWarn = { fg = palette.gold, bg = color.blend(oklch.gold, 0.1, oklch.base) },
 
 		-- Diff
-		Added = { fg = colors.leaf },
-		Changed = { fg = colors.pine },
-		Removed = { fg = colors.love },
+		Added = { fg = palette.leaf },
+		Changed = { fg = palette.pine },
+		Removed = { fg = palette.love },
 		diffChanged = { link = "Changed" },
 		diffAdded = { link = "Added" },
 		diffRemoved = { link = "Removed" },
-		DiffAdd = { bg = util.blend(oklch.leaf, 0.25, oklch.base) },
-		DiffChange = { bg = util.blend(oklch.pine, 0.1, oklch.base) },
-		DiffDelete = { bg = util.blend(oklch.love, 0.25, oklch.base) },
-		DiffText = { bg = util.blend(oklch.pine, 0.25, oklch.base) },
+		DiffAdd = { bg = color.blend(oklch.leaf, 0.25, oklch.base) },
+		DiffChange = { bg = color.blend(oklch.pine, 0.1, oklch.base) },
+		DiffDelete = { bg = color.blend(oklch.love, 0.25, oklch.base) },
+		DiffText = { bg = color.blend(oklch.pine, 0.25, oklch.base) },
 
 		-- Treesitter
-		["@function.builtin"] = { fg = colors.pine, italic = opts.style.italic },
+		["@function.builtin"] = { fg = palette.pine, italic = opts.style.italic },
 		["@lsp.typemod.variable.defaultLibrary"] = { link = "@variable.builtin" },
 		["@lsp.type.variable"] = { fg = "none" },
-		["@markup.heading.1.markdown"] = { fg = colors.pine, bold = opts.style.bold },
-		["@markup.heading.2.markdown"] = { fg = colors.gold, bold = opts.style.bold },
-		["@markup.heading.3.markdown"] = { fg = colors.leaf, bold = opts.style.bold },
-		["@markup.heading.4.markdown"] = { fg = colors.foam, bold = opts.style.bold },
-		["@markup.heading.5.markdown"] = { fg = colors.iris, bold = opts.style.bold },
-		["@markup.heading.6.markdown"] = { fg = colors.rose, bold = opts.style.bold },
+		["@markup.heading.1.markdown"] = { fg = palette.pine, bold = opts.style.bold },
+		["@markup.heading.2.markdown"] = { fg = palette.gold, bold = opts.style.bold },
+		["@markup.heading.3.markdown"] = { fg = palette.leaf, bold = opts.style.bold },
+		["@markup.heading.4.markdown"] = { fg = palette.foam, bold = opts.style.bold },
+		["@markup.heading.5.markdown"] = { fg = palette.iris, bold = opts.style.bold },
+		["@markup.heading.6.markdown"] = { fg = palette.rose, bold = opts.style.bold },
 		["@markup.link"] = { underline = false },
-		["@markup.link.label"] = { fg = colors.foam },
-		["@markup.link.url"] = { fg = colors.iris, underline = true },
-		["@markup.list.markdown"] = { fg = colors.zest },
-		["@markup.quote.markdown"] = { fg = colors.subtle },
-		["@markup.raw"] = { bg = colors.overlay },
+		["@markup.link.label"] = { fg = palette.foam },
+		["@markup.link.url"] = { fg = palette.iris, underline = true },
+		["@markup.list.markdown"] = { fg = palette.zest },
+		["@markup.quote.markdown"] = { fg = palette.subtle },
+		["@markup.raw"] = { bg = palette.overlay },
 		["@markup.raw.block"] = { bg = "none" },
-		["@module.builtin"] = { fg = colors.love },
+		["@module.builtin"] = { fg = palette.love },
 		["@punctuation"] = { link = "Delimiter" },
 		["@punctuation.special"] = { link = "Delimiter" },
-		["@tag"] = { fg = colors.love, bold = opts.style.bold },
-		["@tag.attribute"] = { fg = colors.foam },
+		["@tag"] = { fg = palette.love, bold = opts.style.bold },
+		["@tag.attribute"] = { fg = palette.foam },
 		["@tag.delimiter"] = { link = "Delimiter" },
-		["@variable"] = { fg = colors.text },
-		["@variable.builtin"] = { fg = colors.love, bold = opts.style.bold },
-		["@variable.member"] = { fg = colors.foam },
+		["@variable"] = { fg = palette.text },
+		["@variable.builtin"] = { fg = palette.love, bold = opts.style.bold },
+		["@variable.member"] = { fg = palette.foam },
 
 		-- LSP
 		["@lsp.typemod.variable.readonly"] = { link = "Constant" },
@@ -156,7 +156,7 @@ M.setup = function(colors)
 	for plugin_name, enabled in pairs(enabled_plugins) do
 		if enabled then
 			local ok, plugin_highlights = pcall(function()
-				return require("pino.groups." .. plugin_name).get(colors, opts)
+				return require("pino.groups." .. plugin_name).get(palette, opts)
 			end)
 			if ok then
 				highlights = vim.tbl_extend("force", highlights, plugin_highlights)
@@ -164,7 +164,7 @@ M.setup = function(colors)
 		end
 	end
 
-	opts.on_highlights(highlights, colors)
+	opts.on_highlights(highlights, palette)
 
 	return highlights
 end

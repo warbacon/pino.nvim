@@ -1,17 +1,18 @@
 local M = {}
 
----@param colors table
-function M.generate(colors)
-  local util = require("pino.util")
-  local pi_colors = vim.tbl_extend("force", colors, {
-    selection = colors.ui.selection,
-    dim = colors.muted,
-    tool_success_bg = util.blend(colors.leaf, 0.2, colors.base),
-    tool_error_bg = util.blend(colors.love, 0.2, colors.base)
-  })
+---@param palette table
+function M.generate(palette)
+	local util = require("pino.util")
+	local color = require("pino.color")
+	local pi_colors = vim.tbl_extend("force", palette, {
+		selection = palette.ui.selection,
+		dim = palette.muted,
+		tool_success_bg = color.blend(palette.leaf, 0.2, palette.base),
+		tool_error_bg = color.blend(palette.love, 0.2, palette.base),
+	})
 
-  local content = util.template(
-    [[{
+	local content = util.template(
+		[[{
   "$schema": "https://raw.githubusercontent.com/earendil-works/pi/main/packages/coding-agent/src/modes/interactive/theme/theme-schema.json",
   "name": "pino",
   "vars": {
@@ -91,10 +92,11 @@ function M.generate(colors)
     "cardBg": "surface",
     "infoBg": "highlight"
   }
-}]], pi_colors
-  )
+}]],
+		pi_colors
+	)
 
-  return { { filename = "pino.json", content = content } }
+	return { { filename = "pino.json", content = content } }
 end
 
 return M

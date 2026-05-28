@@ -1,12 +1,12 @@
 local M = {}
 
----@param colors table<string,string>
+---@param palette table<string,string>
 ---@return table<string,vim.api.keyset.highlight>
-M.get = function(colors)
-    return {
-        IblWhiteSpace = { fg = colors.highlight },
-        IblScope = { fg = colors.pine },
-    }
+M.get = function(palette)
+	return {
+		IblWhiteSpace = { fg = palette.highlight },
+		IblScope = { fg = palette.pine },
+	}
 end
 
 return M
