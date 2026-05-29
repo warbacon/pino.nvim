@@ -12,7 +12,7 @@ function M.generate(palette)
 
 	local content = util.template(
 		[[
-[colors]
+[Palette]
 Name=Pino
 Primary=true
 Foreground=${text}
