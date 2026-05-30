@@ -30,7 +30,8 @@ cursor_text_color ${base}
 active_tab_background ${pine}
 active_tab_foreground ${base}
 inactive_tab_background ${overlay}
-inactive_tab_foreground ${text}
+inactive_tab_foreground ${subtle}
+scrollbar_handle_color ${rose}
 
 # Black
 color0 ${terminal.black}
