@@ -79,6 +79,7 @@ M.setup = function(palette)
 		DiagnosticError = { fg = palette.love },
 		DiagnosticHint = { fg = palette.pine },
 		DiagnosticInfo = { fg = palette.foam },
+		DiagnosticOk = { fg = palette.leaf },
 		DiagnosticWarn = { fg = palette.gold },
 		DiagnosticFloatingError = { fg = palette.love, bg = palette.surface },
 		DiagnosticFloatingHint = { fg = palette.pine, bg = palette.surface },
