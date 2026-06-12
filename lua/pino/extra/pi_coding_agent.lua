@@ -7,8 +7,8 @@ function M.generate(palette)
 	local pi_colors = vim.tbl_extend("force", palette, {
 		selection = palette.ui.selection,
 		dim = palette.muted,
-		tool_success_bg = color.blend(palette.leaf, 0.2, palette.base),
-		tool_error_bg = color.blend(palette.love, 0.2, palette.base),
+		tool_success_bg = color.blend_hex(palette.leaf, 0.2, palette.base),
+		tool_error_bg = color.blend_hex(palette.love, 0.2, palette.base),
 	})
 
 	local content = util.template(

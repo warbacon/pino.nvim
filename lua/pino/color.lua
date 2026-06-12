@@ -97,6 +97,21 @@ M.hex_to_oklch = function(color)
 	}
 end
 
+---Blends two hex colors together.
+---@param foreground string Hex color (e.g. "#ff0000")
+---@param alpha number Blend factor between 0 and 1 (0 = background only, 1 = foreground only)
+---@param background string Hex color (e.g. "#000000")
+---@return string Blended hex color
+M.blend_hex = function(foreground, alpha, background)
+	alpha = clamp(alpha or 0, 0, 1)
+	local fr, fg, fb = hex_to_rgb(foreground)
+	local br, bg, bb = hex_to_rgb(background)
+	if not fr or not br then
+		return background or foreground
+	end
+	return rgb_to_hex(br + alpha * (fr - br), bg + alpha * (fg - bg), bb + alpha * (fb - bb))
+end
+
 M.blend = function(foreground, alpha, background)
 	alpha = clamp(alpha or 0, 0, 1)
 	local fg_hex = M.oklch_to_hex(foreground)
@@ -104,12 +119,7 @@ M.blend = function(foreground, alpha, background)
 	if not fg_hex or not bg_hex then
 		return bg_hex or fg_hex or background or foreground
 	end
-	local fr, fg, fb = hex_to_rgb(fg_hex)
-	local br, bg, bb = hex_to_rgb(bg_hex)
-	if not fr or not br then
-		return bg_hex
-	end
-	return rgb_to_hex(br + alpha * (fr - br), bg + alpha * (fg - bg), bb + alpha * (fb - bb))
+	return M.blend_hex(fg_hex, alpha, bg_hex)
 end
 
 return M

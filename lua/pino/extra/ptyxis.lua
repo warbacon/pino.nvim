@@ -5,9 +5,9 @@ function M.generate(palette)
 	local util = require("pino.util")
 	local color = require("pino.color")
 	local ptyxis_colors = vim.tbl_extend("force", palette, {
-		bell_background = color.blend(palette.gold, 0.25, palette.surface),
-		superuser_background = color.blend(palette.love, 0.33, palette.base),
-		remote_background = color.blend(palette.pine, 0.33, palette.base),
+		bell_background = color.blend_hex(palette.gold, 0.25, palette.surface),
+		superuser_background = color.blend_hex(palette.love, 0.33, palette.base),
+		remote_background = color.blend_hex(palette.pine, 0.33, palette.base),
 	})
 
 	local content = util.template(
